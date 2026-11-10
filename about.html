@@ -46,6 +46,22 @@
 .image-lightbox-close:hover{background:rgba(255,255,255,.24)}
 body.image-lightbox-open{overflow:hidden}
 @media(max-width:600px){.image-lightbox{padding:12px}.image-lightbox img{max-height:calc(100vh - 24px)}.image-lightbox-close{top:10px;right:10px}}
+
+/* Project navigation menu layout refinements */
+.work-nav{position:relative;z-index:1100}
+.work-menu{box-sizing:border-box;right:0;left:auto;top:calc(100% + 14px);width:min(340px,calc(100vw - 32px));max-height:min(70vh,560px);overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain}
+.work-menu details{min-width:0}
+.work-menu>details>summary{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 12px;border-radius:10px}
+.work-menu details details{margin-left:10px;padding-left:10px;border-left:1px solid rgba(255,255,255,.14)}
+.work-menu summary{display:flex;align-items:center;justify-content:space-between;gap:12px;line-height:1.4}
+.work-menu summary:after{float:none;margin-left:auto;flex:0 0 auto;content:"＋"}
+.work-menu details[open]>summary:after{content:"−"}
+.work-menu a{padding:8px 12px 8px 18px;border-radius:8px;line-height:1.4;white-space:normal}
+.work-menu a:hover,.work-menu a:focus-visible{background:rgba(200,168,255,.12);color:#fff;outline:none}
+@media(max-width:650px){
+  .work-menu{right:0;left:auto;width:min(340px,calc(100vw - 30px));max-height:65vh}
+  .work-menu details details{margin-left:6px;padding-left:8px}
+}
 </style>
 </head>
 <body>
