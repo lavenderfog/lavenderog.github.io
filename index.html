@@ -40,7 +40,8 @@
     .project-visuals{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
     .visual-slot{min-height:90px;border:1px dashed rgba(255,255,255,.25);border-radius:13px;display:grid;place-items:center;text-align:center;padding:12px;color:#c5bdd6;background:rgba(255,255,255,.025);font-size:.8rem}
     .mini-project.wide{grid-column:1/-1}
-    @media(max-width:900px){.priority-projects{grid-template-columns:repeat(2,minmax(0,1fr))}}\n    @media(max-width:650px){.project-list,.priority-projects{grid-template-columns:1fr}.mini-project.wide{grid-column:auto}}
+    @media(max-width:900px){.priority-projects{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:650px){.project-list,.priority-projects{grid-template-columns:1fr}.mini-project.wide{grid-column:auto}}
 
     @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
     @media(max-width:780px){.nav{min-height:68px;flex-wrap:wrap;padding:10px 0}.navlinks{width:100%;justify-content:space-between;gap:13px;font-size:.82rem}.hero{padding:65px 0 58px;min-height:auto}.about-grid{grid-template-columns:1fr;gap:25px}.about-stamp{max-width:260px}.work-head{display:block}.work-head p{margin-top:12px}.project-card{grid-template-columns:1fr}.project-art{min-height:310px}.project-info{padding:30px}.contact-panel{display:block;padding:34px}.contact-panel .btn{margin-top:23px}}
@@ -64,6 +65,58 @@
 .work-menu a:hover,.navlinks>a:hover{color:#fff}
 .navlinks>a{white-space:nowrap}
 @media(max-width:650px){.navlinks{gap:12px}.work-menu{right:auto;left:0}.nav-cta{margin-left:auto}}
+
+/* Mobile layout safety: keep every content block inside the viewport */
+html,body{max-width:100%;overflow-x:clip}
+img,video,iframe,svg{max-width:100%}
+main,section,header,footer,nav,.shell,.project-card,.project-info,.mini-project,.project-list,.project-group,.detail-body,.media-gallery,.media-grid,.panel,.result{min-width:0}
+h1,h2,h3,h4,p,li,figcaption,strong,small,a,summary{overflow-wrap:anywhere;word-break:normal}
+.tag,.chips span,.project-meta span{max-width:100%;white-space:normal;overflow-wrap:anywhere}
+.project-list,.priority-projects,.comparison,.project-visuals,.about-grid,.meta,.media-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.project-list>* ,.priority-projects>* ,.comparison>* ,.project-visuals>*{min-width:0}
+@media(max-width:780px){
+  .project-card{grid-template-columns:minmax(0,1fr)}
+  .project-info{min-width:0}
+  .project-art{min-width:0}
+  .project-list,.priority-projects{grid-template-columns:minmax(0,1fr)}
+}
+@media(max-width:650px){
+  .shell{width:calc(100% - 30px);max-width:100%}
+  section{padding:58px 0}
+  .hero{min-height:0;padding:54px 0 48px}
+  h1{font-size:clamp(2.8rem,14vw,4.4rem);line-height:1.02}
+  .section-title{font-size:clamp(2rem,10vw,2.8rem)}
+  .work-head{display:block;min-width:0}
+  .work-head p{max-width:100%;margin-top:12px}
+  .project-group{margin-top:38px}
+  .project-group-head{align-items:flex-start}
+  .project-group-head h3{font-size:clamp(1.2rem,6vw,1.55rem);line-height:1.2}
+  .mini-project{padding:20px;min-width:0}
+  .mini-project h3{font-size:1.22rem;line-height:1.2}
+  .mini-project p,.project-info p,.section-copy{font-size:.96rem;line-height:1.6}
+  .project-info{padding:24px}
+  .project-info h3{font-size:clamp(1.5rem,8vw,1.9rem)}
+  .project-art{min-height:230px;padding:20px}
+  .priority-projects,.project-list,.comparison,.project-visuals,.about-grid,.meta,.media-grid{grid-template-columns:minmax(0,1fr)}
+  .mini-project.wide{grid-column:auto}
+  .work-accordion>summary{padding:15px 16px;font-size:.94rem;line-height:1.4}
+  .work-accordion .detail-body{padding:0 15px 16px;min-width:0}
+  .work-accordion .project-list{gap:12px}
+  .contact-panel{padding:26px;min-width:0}
+  .comparison{gap:12px}
+  .compare-tile{min-width:0}
+  .media-card img{height:auto;max-height:70vh;object-fit:contain}
+  .nav{min-width:0}
+  .navlinks{min-width:0;gap:10px;row-gap:10px}
+  .navlinks>a,.navlinks summary{font-size:.82rem}
+}
+@media(max-width:380px){
+  .shell{width:calc(100% - 24px)}
+  .mini-project{padding:16px}
+  .project-info{padding:20px}
+  .work-accordion>summary{padding:13px}
+  .tag{font-size:.68rem;letter-spacing:.02em}
+}
 </style>
 </head>
 <body>
