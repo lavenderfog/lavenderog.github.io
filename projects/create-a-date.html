@@ -18,8 +18,49 @@ details{border:1px solid var(--line);border-radius:16px;margin:12px 0;background
 @media(max-width:620px){.nav{align-items:flex-start;padding:17px 0;flex-direction:column}.navlinks{gap:16px}.meta{grid-template-columns:1fr}.meta div{padding:13px}main{padding-top:42px}}
 
 .media-gallery{margin:42px 0 48px}.media-gallery h2{font:800 1.65rem Manrope,sans-serif;margin:0 0 8px;letter-spacing:-.035em}.media-gallery>p{color:#c5bdd6;margin:0 0 18px}.media-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.media-card{margin:0;overflow:hidden;border:1px solid rgba(255,255,255,.14);border-radius:16px;background:rgba(255,255,255,.045)}.media-card img{display:block;width:100%;height:auto;max-height:560px;object-fit:contain;background:rgba(0,0,0,.18)}.media-card figcaption{padding:11px 14px;color:#d7cfe1;font-size:.88rem}.media-video{margin-top:18px}.media-video video{display:block;width:100%;max-height:620px;border:1px solid rgba(255,255,255,.14);border-radius:16px;background:#090711}.media-video figcaption{color:#c5bdd6;font-size:.88rem;margin-top:8px}@media(max-width:620px){.media-grid{grid-template-columns:1fr}}
+
+/* Shared site navigation */
+.topbar,.top{position:sticky;top:0;z-index:1000;background:rgba(23,19,38,.92);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.navlinks{position:relative;z-index:1001;align-items:center;flex-wrap:wrap}
+.work-nav{position:relative;z-index:1002}
+.work-nav>summary{cursor:pointer;list-style:none;white-space:nowrap}
+.work-nav>summary::-webkit-details-marker{display:none}
+.work-nav>summary:after{content:"⌄";margin-left:7px;color:var(--pink)}
+.work-menu{position:absolute;right:0;top:calc(100% + 12px);z-index:1003;width:min(310px,calc(100vw - 30px));max-height:min(72vh,620px);overflow:auto;padding:12px;background:#28213d;border:1px solid var(--line);border-radius:18px;box-shadow:0 24px 80px rgba(5,3,16,.45)}
+.work-menu details{padding:7px 9px;border:0;border-radius:0;background:transparent;margin:0}
+.work-menu details+details{border-top:1px solid var(--line);margin-top:5px;padding-top:12px}
+.work-menu summary{color:#fff;font-weight:700;cursor:pointer;list-style:none}
+.work-menu summary::-webkit-details-marker{display:none}
+.work-menu summary:after{content:"＋";float:right;color:var(--pink)}
+.work-menu details[open]>summary:after{content:"−"}
+.work-menu a{display:block;padding:7px 12px;color:var(--muted);font-size:.88rem}
+.work-menu a:hover,.navlinks>a:hover{color:#fff}
+.navlinks>a{white-space:nowrap}
+@media(max-width:650px){.navlinks{gap:12px}.work-menu{right:auto;left:0}.nav-cta{margin-left:auto}}
 </style></head>
-<body><header class="top"><div class="shell nav"><a class="brand" href="../index.html">katie<span>✦</span>lucas</a><nav class="navlinks"><a href="../index.html">Home</a><a href="../index.html#about">About Me</a><a href="../index.html#work">Projects</a></nav></div></header>
+<body><header class="top"><div class="shell nav"><a class="brand" href="../index.html">katie<span>✦</span>lucas</a><nav class="navlinks" aria-label="Main navigation">
+      <a href="../index.html#home">Home</a><a href="../about.html">About Me</a>
+      <details class="work-nav"><summary>Projects</summary><div class="work-menu">
+        <details><summary>The Sims 4</summary>
+          <details><summary>UI work</summary>
+            <a href="../projects/collections-ui.html">Collections UI Update</a>
+            <a href="../projects/notebook-ui.html">Notebook UI Update</a>
+            <a href="../projects/create-a-date.html">Create a Date &amp; Situation Creation</a>
+            <a href="../projects/fairy-motives-icon.html">Fairy Motives Icon</a>
+          </details>
+          <details><summary>Gameplay work</summary>
+            <a href="../projects/horse-riding-routing.html">Horse Riding &amp; Routing</a>
+            <a href="../projects/fairy-systems.html">Fairy Systems: Flight, Wings &amp; Routing</a>
+          </details>
+          <details><summary>Technical design work</summary>
+            <a href="../projects/horse-breeding.html">Horse Breeding &amp; Birth</a>
+          </details>
+        </details>
+        <details><summary>Star Wars: The Old Republic</summary><a href="../projects/swtor-emote-ui.html">Emote Window Redesign</a></details>
+        <details><summary>Personal Projects</summary><a href="../projects/pixie-hollow-ui.html">Pixie Hollow UI Technical Design</a></details>
+      </div></details>
+      <a class="nav-cta" href="https://docs.google.com/document/d/13VYmHUxqoBppNp7QNZcdYmRZPDcVqokVWngf_l2nmao/edit?usp=sharing" target="_blank" rel="noreferrer">Resume ↗</a>
+    </nav></div></header>
 <main class="shell"><a class="back" href="../index.html#work">← Back to projects</a>
 <header class="hero"><p class="eyebrow">The Sims 4 · Lovestruck · Gameplay feature & UI</p><h1>Create a Date & Situation Creation</h1><p class="lede">Designed and implemented the Create a Date feature and Situation Rewards, while improving existing situation creation functionality and UI.</p><div class="chips"><span>Gameplay engineering</span><span>UI implementation</span><span>Technical design</span><span>Cross-discipline collaboration</span></div>
 <div class="meta"><div><small>Contribution</small><strong>Designed and implemented features; coordinated engineering tasks</strong></div><div><small>Company / context</small><strong>Electronic Arts · Maxis</strong></div><div><small>Project period</small><strong>2023–2024</strong></div></div></header>
