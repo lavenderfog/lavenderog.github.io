@@ -100,6 +100,31 @@ h1,h2,h3,h4,p,li,figcaption,strong,small,a,summary{overflow-wrap:anywhere;word-b
   .work-accordion>summary{padding:13px}
   .tag{font-size:.68rem;letter-spacing:.02em}
 }
+
+/* Mobile layout safety: keep every content block inside the viewport */
+html,body{max-width:100%;overflow-x:clip}img,video,iframe,svg{max-width:100%}
+main,section,header,footer,nav,.shell,.project-card,.project-info,.mini-project,.project-list,.project-group,.detail-body,.media-gallery,.media-grid,.panel,.result{min-width:0}
+h1,h2,h3,h4,p,li,figcaption,strong,small,a,summary{overflow-wrap:anywhere;word-break:normal}
+.tag,.chips span,.project-meta span{max-width:100%;white-space:normal;overflow-wrap:anywhere}
+.project-list,.priority-projects,.comparison,.project-visuals,.about-grid,.meta,.media-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.project-list>*,.priority-projects>*,.comparison>*,.project-visuals>*{min-width:0}
+@media(max-width:780px){.project-card{grid-template-columns:minmax(0,1fr)}.project-info,.project-art{min-width:0}.project-list,.priority-projects{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:650px){
+.shell{width:calc(100% - 30px);max-width:100%}section{padding:58px 0}.hero{min-height:0;padding:54px 0 48px}
+h1{font-size:clamp(2.8rem,14vw,4.4rem);line-height:1.02}.section-title{font-size:clamp(2rem,10vw,2.8rem)}
+.work-head{display:block;min-width:0}.work-head p{max-width:100%;margin-top:12px}
+.project-group{margin-top:38px}.project-group-head{align-items:flex-start}.project-group-head h3{font-size:clamp(1.2rem,6vw,1.55rem);line-height:1.2}
+.mini-project{padding:20px;min-width:0}.mini-project h3{font-size:1.22rem;line-height:1.2}
+.mini-project p,.project-info p,.section-copy{font-size:.96rem;line-height:1.6}
+.project-info{padding:24px}.project-info h3{font-size:clamp(1.5rem,8vw,1.9rem)}.project-art{min-height:230px;padding:20px}
+.priority-projects,.project-list,.comparison,.project-visuals,.about-grid,.meta,.media-grid{grid-template-columns:minmax(0,1fr)}
+.mini-project.wide{grid-column:auto}.work-accordion>summary{padding:15px 16px;font-size:.94rem;line-height:1.4}
+.work-accordion .detail-body{padding:0 15px 16px;min-width:0}.work-accordion .project-list{gap:12px}
+.contact-panel{padding:26px;min-width:0}.comparison{gap:12px}.compare-tile{min-width:0}
+.media-card img{height:auto;max-height:70vh;object-fit:contain}.nav,.navlinks{min-width:0}.navlinks{gap:10px;row-gap:10px}
+.navlinks>a,.navlinks summary{font-size:.82rem}
+}
+@media(max-width:380px){.shell{width:calc(100% - 24px)}.mini-project{padding:16px}.project-info{padding:20px}.work-accordion>summary{padding:13px}.tag{font-size:.68rem;letter-spacing:.02em}}
 </style>
 </head><body><header class="top"><div class="shell nav"><a class="brand" href="../index.html">katie<span>✦</span>lucas</a><nav class="navlinks" aria-label="Main navigation"><a href="../index.html#home">Home</a><a href="../about.html">About Me</a><details class="work-nav"><summary>Projects</summary><div class="work-menu"><details><summary>The Sims 4</summary><details><summary>UI work</summary><a href="../projects/collections-ui.html">Collections UI Update</a><a href="../projects/notebook-ui.html">Notebook UI Update</a><a href="../projects/create-a-date.html">Create a Date &amp; Situation Creation</a><a href="../projects/fairy-motives-icon.html">Fairy Motives Icon</a></details><details><summary>Gameplay work</summary><a href="../projects/horse-riding-routing.html">Horse Riding &amp; Routing</a><a href="../projects/fairy-systems.html">Fairy Systems: Flight, Wings &amp; Routing</a></details><details><summary>Technical design work</summary><a href="../projects/horse-breeding.html">Horse Breeding &amp; Birth</a></details></details><details><summary>Star Wars: The Old Republic</summary><a href="../projects/swtor-emote-ui.html">Emote Window Redesign</a></details><details><summary>Personal Projects</summary><a href="../projects/pixie-hollow-ui.html">Pixie Hollow UI Technical Design</a></details></div></details><a class="nav-cta" href="https://docs.google.com/document/d/13VYmHUxqoBppNp7QNZcdYmRZPDcVqokVWngf_l2nmao/edit?usp=sharing" target="_blank" rel="noreferrer">Resume ↗</a></nav></div></header><main class="shell"><a href="../index.html#other-work">← Back to projects</a><header><p class="eyebrow">The Sims 4 · Enchanted by Nature · UI visual design</p><h1>Fairy Motives Icon</h1><p class="lede">A focused case study on designing the fairy motives icon and iterating on visual direction with UX feedback.</p><div class="meta"><div><small>Project</small><strong>The Sims 4 · Enchanted by Nature</strong></div><div><small>Project type</small><strong>UI visual design</strong></div><div><small>Contribution</small><strong>Icon design and UX iteration</strong></div></div></header>
 <section class="media-gallery" aria-label="Project screenshots"><h2>In-game &amp; interface screenshots</h2><p>A closer look at the work and the experience.</p><div class="media-grid">
