@@ -185,7 +185,7 @@ h1{font-size:clamp(2.8rem,14vw,4.4rem);line-height:1.02}.section-title{font-size
 
 <style id="projects-menu-mobile-fix">
 @media (max-width:650px) {
-.work-menu{position:fixed!important;top:12vh!important;right:12px!important;bottom:auto!important;left:auto!important;width:calc(100vw - 24px)!important;max-width:420px!important;height:78vh!important;height:78dvh!important;min-height:0!important;max-height:calc(100dvh - 24px)!important;overflow-x:hidden!important;overflow-y:auto!important;-webkit-overflow-scrolling:touch!important;overscroll-behavior:contain;padding:16px!important;font-size:1rem!important;z-index:9999!important;box-sizing:border-box!important}
+.work-menu{position:fixed!important;top:var(--projects-menu-top,12vh)!important;right:auto!important;bottom:auto!important;left:var(--projects-menu-left,12px)!important;width:calc(100vw - 24px)!important;max-width:420px!important;height:min(78vh,calc(100vh - var(--projects-menu-top,12vh) - 12px))!important;height:min(78dvh,calc(100dvh - var(--projects-menu-top,12vh) - 12px))!important;min-height:0!important;max-height:calc(100dvh - 24px)!important;overflow-x:hidden!important;overflow-y:auto!important;-webkit-overflow-scrolling:touch!important;overscroll-behavior:contain;padding:16px!important;font-size:1rem!important;z-index:9999!important;box-sizing:border-box!important}
 .work-menu details{padding:9px 6px!important}.work-menu summary{min-width:0;font-size:1rem!important;line-height:1.5!important;padding:12px 10px!important}.work-menu a{overflow-wrap:anywhere;font-size:.98rem!important;line-height:1.55!important;padding:11px 12px 11px 18px!important}
 }
 @media(max-width:380px){.work-menu{width:calc(100vw - 16px)!important}}
@@ -194,7 +194,7 @@ h1{font-size:clamp(2.8rem,14vw,4.4rem);line-height:1.02}.section-title{font-size
 <script id="projects-menu-mobile-fix-script">
 (function(){var nav=document.querySelector('.work-nav');if(!nav)return;var menu=nav.querySelector('.work-menu');if(!menu)return;
 function closeSections(){menu.querySelectorAll('details[open]').forEach(function(section){section.removeAttribute('open')})}
-function positionMenu(){if(window.matchMedia('(max-width:650px)').matches){var bar=document.querySelector('.nav'),bottom=bar?bar.getBoundingClientRect().bottom:72,top=Math.min(bottom+8,Math.max(64,window.innerHeight*.28));menu.style.top=Math.round(top)+'px'}else menu.style.removeProperty('top')}
+function positionMenu(){if(window.matchMedia('(max-width:650px)').matches){var trigger=nav.querySelector(':scope > summary'),rect=trigger?trigger.getBoundingClientRect():nav.getBoundingClientRect(),panelWidth=Math.min(420,window.innerWidth-24),left=Math.max(8,Math.min(rect.left,window.innerWidth-panelWidth-8)),top=Math.min(rect.bottom+8,Math.max(8,window.innerHeight-180));menu.style.setProperty('--projects-menu-left',Math.round(left)+'px');menu.style.setProperty('--projects-menu-top',Math.round(top)+'px')}else{menu.style.removeProperty('--projects-menu-top');menu.style.removeProperty('--projects-menu-left')}}
 closeSections();nav.addEventListener('toggle',function(){if(nav.open){closeSections();positionMenu()}});window.addEventListener('resize',function(){if(nav.open)positionMenu()});window.addEventListener('orientationchange',function(){if(nav.open)positionMenu()})
 })();
 </script>
