@@ -37,7 +37,18 @@ details{border:1px solid var(--line);border-radius:16px;margin:12px 0;background
 .work-menu a:hover,.navlinks>a:hover{color:#fff}
 .navlinks>a{white-space:nowrap}
 @media(max-width:650px){.navlinks{gap:12px}.work-menu{right:auto;left:0}.nav-cta{margin-left:auto}}
-</style></head>
+</style><style>
+/* Full-screen image viewer */
+.image-lightbox-trigger{cursor:zoom-in}
+.image-lightbox{position:fixed;inset:0;z-index:20000;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(8,6,17,.96);backdrop-filter:blur(10px)}
+.image-lightbox[open]{display:flex}
+.image-lightbox img{display:block;max-width:100%;max-height:calc(100vh - 48px);width:auto;height:auto;object-fit:contain;border:0;border-radius:4px;box-shadow:0 20px 80px rgba(0,0,0,.5);cursor:zoom-out}
+.image-lightbox-close{position:absolute;top:18px;right:22px;width:48px;height:48px;border:1px solid rgba(255,255,255,.35);border-radius:50%;background:rgba(255,255,255,.12);color:#fff;font-size:30px;line-height:1;cursor:pointer}
+.image-lightbox-close:hover{background:rgba(255,255,255,.24)}
+body.image-lightbox-open{overflow:hidden}
+@media(max-width:600px){.image-lightbox{padding:12px}.image-lightbox img{max-height:calc(100vh - 24px)}.image-lightbox-close{top:10px;right:10px}}
+</style>
+</head>
 <body><header class="top"><div class="shell nav"><a class="brand" href="../index.html">katie<span>✦</span>lucas</a><nav class="navlinks" aria-label="Main navigation"><a href="../index.html#home">Home</a><a href="../about.html">About Me</a><details class="work-nav"><summary>Projects</summary><div class="work-menu"><details><summary>The Sims 4</summary><details><summary>UI work</summary><a href="../projects/collections-ui.html">Collections UI Update</a><a href="../projects/notebook-ui.html">Notebook UI Update</a><a href="../projects/create-a-date.html">Create a Date &amp; Situation Creation</a><a href="../projects/fairy-motives-icon.html">Fairy Motives Icon</a></details><details><summary>Gameplay work</summary><a href="../projects/horse-riding-routing.html">Horse Riding &amp; Routing</a><a href="../projects/fairy-systems.html">Fairy Systems: Flight, Wings &amp; Routing</a></details><details><summary>Technical design work</summary><a href="../projects/horse-breeding.html">Horse Breeding &amp; Birth</a></details></details><details><summary>Star Wars: The Old Republic</summary><a href="../projects/swtor-emote-ui.html">Emote Window Redesign</a></details><details><summary>Personal Projects</summary><a href="../projects/pixie-hollow-ui.html">Pixie Hollow UI Technical Design</a></details></div></details><a class="nav-cta" href="https://docs.google.com/document/d/13VYmHUxqoBppNp7QNZcdYmRZPDcVqokVWngf_l2nmao/edit?usp=sharing" target="_blank" rel="noreferrer">Resume ↗</a></nav></div></header>
 <main class="shell"><a class="back" href="../index.html#work">← Back to projects</a>
 <header class="hero"><p class="eyebrow">The Sims 4 · Horse Ranch · Gameplay systems & technical design</p><h1>Horse Breeding & Birth</h1><p class="lede">Technical design and engineering implementation for horse breeding and birth, from pre-production research through iteration and bug fixing.</p><div class="chips"><span>Gameplay systems</span><span>Technical design</span><span>C++</span><span>Feature ownership</span></div>
@@ -50,4 +61,31 @@ details{border:1px solid var(--line);border-radius:16px;margin:12px 0;background
 </div></section>
 <h2 class="section">Case study</h2>
 <details open><summary>My role & contribution</summary><div class="detail-body"><ul><li>Conducted pre-expansion research and evaluated implementation options.</li><li>Created technical designs for horse breeding and birth.</li><li>Led engineering implementation, iteration, and bug fixing.</li><li>Also owned parts of horse riding, riding social, waypoint-based path planning for Run Around, and foal design implementation.</li></ul></div></details><details ><summary>Technical design process</summary><div class="detail-body">The project began with research and evaluation of possible implementation approaches, followed by technical design and implementation. Research and evaluation informed the technical designs for horse breeding and birth, followed by implementation, iteration, and bug fixing.</div></details><details ><summary>Tools & technologies</summary><div class="detail-body">The supplied resume identifies C++ and the broader engineering toolset, but does not assign a specific toolchain to this feature.</div></details>
-</main><footer class="footer"><div class="shell">© <span id="year"></span> Katie Lucas · <a href="mailto:katie.lucas.a@gmail.com">Get in touch</a></div></footer><script>document.getElementById('year').textContent=new Date().getFullYear()</script></body></html>
+</main><footer class="footer"><div class="shell">© <span id="year"></span> Katie Lucas · <a href="mailto:katie.lucas.a@gmail.com">Get in touch</a></div></footer><script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+<div class="image-lightbox" id="image-lightbox" role="dialog" aria-modal="true" aria-label="Expanded image">
+  <button class="image-lightbox-close" type="button" aria-label="Close expanded image">×</button>
+  <img alt="">
+</div>
+<script>
+(function(){
+  var viewer=document.getElementById('image-lightbox');
+  if(!viewer)return;
+  var expanded=viewer.querySelector('img');
+  var closeButton=viewer.querySelector('.image-lightbox-close');
+  function closeViewer(){viewer.removeAttribute('open');viewer.style.display='none';expanded.removeAttribute('src');document.body.classList.remove('image-lightbox-open');}
+  document.querySelectorAll('main img, .about-photo').forEach(function(photo){
+    photo.classList.add('image-lightbox-trigger');
+    photo.setAttribute('tabindex','0');
+    photo.setAttribute('role','button');
+    photo.setAttribute('aria-label',(photo.alt||'Photo')+' — expand image');
+    function openViewer(){expanded.src=photo.currentSrc||photo.src;expanded.alt=photo.alt||'Expanded photo';viewer.setAttribute('open','');viewer.style.display='flex';document.body.classList.add('image-lightbox-open');closeButton.focus();}
+    photo.addEventListener('click',openViewer);
+    photo.addEventListener('keydown',function(event){if(event.key==='Enter'||event.key===' '){event.preventDefault();openViewer();}});
+  });
+  closeButton.addEventListener('click',closeViewer);
+  viewer.addEventListener('click',function(event){if(event.target===viewer||event.target===expanded)closeViewer();});
+  document.addEventListener('keydown',function(event){if(event.key==='Escape'&&viewer.hasAttribute('open'))closeViewer();});
+})();
+</script>
+
+</body></html>
