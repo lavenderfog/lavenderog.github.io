@@ -59,7 +59,7 @@ body.image-lightbox-open{overflow:hidden}
     photo.addEventListener('keydown',function(event){if(event.key==='Enter'||event.key===' '){event.preventDefault();openViewer();}});
   });
   closeButton.addEventListener('click',closeViewer);
-  viewer.addEventListener('click',function(event){if(event.target===viewer||event.target===expanded)closeViewer();});
+  viewer.addEventListener('click',function(event){if(event.target===viewer)closeViewer();});
   document.addEventListener('keydown',function(event){if(event.key==='Escape'&&viewer.hasAttribute('open'))closeViewer();});
 })();
 </script>
