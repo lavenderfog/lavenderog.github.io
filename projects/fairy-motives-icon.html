@@ -197,4 +197,74 @@ h1{font-size:clamp(2.8rem,14vw,4.4rem);line-height:1.02}.section-title{font-size
 })();
 </script>
 
+
+<style id="projects-menu-mobile-fix">
+/* Keep the project menu fully inside the phone viewport. */
+@media (max-width:650px) {
+  .work-menu {
+    position:fixed !important;
+    top:var(--projects-menu-top, 110px) !important;
+    right:15px !important;
+    bottom:10px !important;
+    left:auto !important;
+    width:min(340px,calc(100vw - 30px)) !important;
+    max-width:calc(100vw - 30px) !important;
+    max-height:none !important;
+    overflow-x:hidden !important;
+    overflow-y:auto !important;
+    overscroll-behavior:contain;
+    z-index:2000 !important;
+  }
+  .work-menu summary { min-width:0; }
+  .work-menu a { overflow-wrap:anywhere; }
+}
+@media (max-width:380px) {
+  .work-menu { right:12px !important; width:calc(100vw - 24px) !important; max-width:calc(100vw - 24px) !important; }
+}
+/* Plus means collapsed; minus appears only for an actually expanded menu section. */
+.work-menu summary:after { content:"＋" !important; }
+.work-menu details[open] > summary:after { content:"−" !important; }
+</style>
+<script id="projects-menu-mobile-fix-script">
+(function () {
+  var nav = document.querySelector('.work-nav');
+  if (!nav) return;
+  var menu = nav.querySelector('.work-menu');
+  var trigger = nav.querySelector(':scope > summary');
+  if (!menu || !trigger) return;
+
+  function closeMenuSections() {
+    menu.querySelectorAll('details[open]').forEach(function (section) {
+      section.removeAttribute('open');
+    });
+  }
+  function positionMenu() {
+    if (window.matchMedia('(max-width:650px)').matches) {
+      var navBar = document.querySelector('.nav');
+      var bottom = navBar ? navBar.getBoundingClientRect().bottom : 90;
+      var top = Math.max(8, Math.min(bottom + 8, window.innerHeight - 180));
+      menu.style.setProperty('--unused', '0');
+      menu.style.setProperty('top', top + 'px');
+    } else {
+      menu.style.removeProperty('top');
+    }
+  }
+
+  /* Project detail accordions must never make the navigation look expanded. */
+  closeMenuSections();
+  nav.addEventListener('toggle', function () {
+    if (nav.open) {
+      closeMenuSections();
+      positionMenu();
+    }
+  });
+  window.addEventListener('resize', function () {
+    if (nav.open) positionMenu();
+  });
+  window.addEventListener('orientationchange', function () {
+    if (nav.open) positionMenu();
+  });
+})();
+</script>
+
 </body></html>
