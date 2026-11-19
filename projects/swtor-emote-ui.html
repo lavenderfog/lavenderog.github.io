@@ -129,6 +129,17 @@ h1{font-size:clamp(2.8rem,14vw,4.4rem);line-height:1.02}.section-title{font-size
   .work-menu{width:calc(100vw - 24px);max-width:calc(100vw - 24px)}
 }
 </style>
+
+<style id="consistent-projects-nav">
+/* Keep the Projects trigger identical on every page and in both states. */
+.work-nav,.work-nav[open]{border:0!important;outline:0!important;box-shadow:none!important}
+.work-nav>summary,.work-nav[open]>summary{display:inline-flex!important;align-items:center!important;gap:0!important;appearance:none!important;-webkit-appearance:none!important;list-style:none!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;outline:0!important;box-shadow:none!important;background:transparent!important;color:inherit!important;font:inherit!important;font-size:inherit!important;font-weight:inherit!important;line-height:inherit!important;letter-spacing:inherit!important;transform:none!important}
+.work-nav>summary::-webkit-details-marker{display:none!important}.work-nav>summary::marker{content:""!important}
+.work-nav>summary::after,.work-nav[open]>summary::after{content:""!important;display:inline-block!important;flex:0 0 16px!important;width:16px!important;height:12px!important;min-width:16px!important;margin:0 0 0 9px!important;padding:0!important;border:0!important;border-radius:0!important;background:linear-gradient(var(--pink),var(--pink)) 0 0/100% 2px no-repeat,linear-gradient(var(--pink),var(--pink)) 0 5px/100% 2px no-repeat,linear-gradient(var(--pink),var(--pink)) 0 10px/100% 2px no-repeat!important;box-shadow:none!important;transform:none!important;opacity:1!important}
+.work-nav>summary:focus,.work-nav>summary:focus-visible{outline:0!important;box-shadow:none!important}
+.work-nav>summary:hover{border:0!important;background:transparent!important}
+</style>
+
 </head>
 <body><header class="top"><div class="shell nav"><a class="brand" href="../index.html">katie<span>✦</span>lucas</a><nav class="navlinks" aria-label="Main navigation"><a href="../index.html#home">Home</a><a href="../about.html">About Me</a><details class="work-nav"><summary>Projects</summary><div class="work-menu"><a href="sims4-ui.html">The Sims 4 : UI</a><a href="sims4-gameplay.html">The Sims 4 : Gameplay</a><a href="sims4-client-performance.html">The Sims 4 : Client</a><a href="horse-breeding.html">The Sims 4 : Technical Design</a><a href="swtor-emote-ui.html">Star Wars the Old Republic: Emote Window Redesign</a><a href="pixie-hollow-ui.html">Personal Project: Pixie Hollow UI Technical Design</a></div></details></nav></div></header>
 <main class="shell"><a class="back" href="../index.html#work">← Back to projects</a>
