@@ -226,6 +226,50 @@ h1{font-size:clamp(2.8rem,14vw,4.4rem);line-height:1.02}.section-title{font-size
 .work-nav > summary:hover { border:0 !important; background:transparent !important; }
 </style>
 
+
+<style id="site-resume-button-consistency">
+/* One persistent Resume treatment across every page and interaction state. */
+.navlinks>a.nav-cta,
+header.top .navlinks>a.nav-cta,
+header.topbar .navlinks>a.nav-cta {
+  display:inline-flex!important;
+  flex:0 0 auto!important;
+  align-items:center!important;
+  justify-content:center!important;
+  visibility:visible!important;
+  opacity:1!important;
+  position:relative!important;
+  padding:10px 17px!important;
+  border:1px solid rgba(255,184,213,.7)!important;
+  border-radius:999px!important;
+  background:rgba(255,184,213,.07)!important;
+  color:#ffe2ed!important;
+  font:700 .9rem/1.35 "DM Sans",sans-serif!important;
+  text-decoration:none!important;
+  white-space:nowrap!important;
+  box-shadow:0 0 0 1px rgba(255,184,213,.08),0 6px 20px rgba(5,3,16,.12)!important;
+  outline-offset:3px!important;
+  box-sizing:border-box!important;
+}
+.navlinks>a.nav-cta:hover,
+.navlinks>a.nav-cta:focus-visible,
+.navlinks>a.nav-cta:active,
+header.top .navlinks>a.nav-cta:hover,
+header.top .navlinks>a.nav-cta:focus-visible,
+header.top .navlinks>a.nav-cta:active {
+  display:inline-flex!important;
+  border:1px solid rgba(255,184,213,.9)!important;
+  background:rgba(255,184,213,.14)!important;
+  color:#fff!important;
+  box-shadow:0 0 0 1px rgba(255,184,213,.12),0 8px 24px rgba(5,3,16,.2)!important;
+}
+@media(max-width:520px){
+  .navlinks>a.nav-cta,
+  header.top .navlinks>a.nav-cta,
+  header.topbar .navlinks>a.nav-cta {padding:8px 12px!important;font-size:.82rem!important}
+}
+</style>
+
 </head>
 <body>
   <header class="topbar">
