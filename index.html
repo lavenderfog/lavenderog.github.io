@@ -168,6 +168,30 @@ h1{font-size:clamp(2.8rem,14vw,4.4rem);line-height:1.02}.section-title{font-size
   .hero-profile .actions{gap:8px}
   .hero-profile .btn{padding:10px 12px;font-size:.78rem}
 }
+
+/* Tighten the homepage intro and keep the resume beside the role. */
+.hero{padding-top:26px;padding-bottom:10px}
+.work-section{padding-top:12px}
+.hero-name-row{align-items:center}
+.hero-heading-copy{min-width:0}
+.hero-profile h1{margin:0 0 8px}
+.hero-role-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.hero-profile .role{margin:0;font-size:clamp(1rem,1.7vw,1.25rem)}
+.hero-profile .actions{display:inline-flex;gap:9px;margin:0}
+.hero-profile .btn{padding:10px 15px;font-size:.84rem}
+@media(max-width:650px){
+  .hero{padding:22px 0 8px}
+  .hero-name-row{gap:8px}
+  .hero-role-row{gap:9px}
+  .hero-profile .role{font-size:.9rem}
+  .hero-profile .btn{padding:8px 11px;font-size:.76rem}
+}
+@media(max-width:390px){
+  .hero-role-row{gap:7px}
+  .hero-profile .role{font-size:.82rem}
+  .hero-profile .btn{padding:7px 9px;font-size:.72rem}
+}
+
 </style>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=1">
   
@@ -284,12 +308,16 @@ header.top .navlinks>a.nav-cta:active {
       <div class="hero-profile">
         <div class="hero-profile-copy">
           <div class="hero-name-row">
-            <h1><span class="gradient">Katie Lucas</span></h1>
+            <div class="hero-heading-copy">
+              <h1><span class="gradient">Katie Lucas</span></h1>
+              <div class="hero-role-row">
+                <p class="role">Gaming UI Technologist</p>
+                <div class="actions">
+                  <a class="btn btn-ghost" href="https://docs.google.com/document/d/1S6E1jukSYpKU73AlZdMhTuSiJwFY8Or7omLJUwZx3eY/edit?usp=sharing" target="_blank" rel="noreferrer">View resume ↗</a>
+                </div>
+              </div>
+            </div>
             <div class="hero-portrait-frame"><img class="hero-portrait" src="katielucasaboutme.png" alt="Katie Lucas" fetchpriority="high"></div>
-          </div>
-          <p class="role">Gaming UI Technologist</p>
-          <div class="actions">
-<a class="btn btn-ghost" href="https://docs.google.com/document/d/1S6E1jukSYpKU73AlZdMhTuSiJwFY8Or7omLJUwZx3eY/edit?usp=sharing" target="_blank" rel="noreferrer">View resume ↗</a>
           </div>
         </div>
       </div>
